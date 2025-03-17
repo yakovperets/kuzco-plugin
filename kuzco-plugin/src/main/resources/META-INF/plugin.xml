@@ -1,0 +1,53 @@
+<idea-plugin>
+    <id>com.kuzco.kuzcoplugin</id>
+    <name>Kuzco Plugin</name>
+    <vendor email="yakov.perets@gmail.com" url="https://github.com/yakovperets/kuzco-plugin" />
+    <description>
+        <![CDATA[
+        A powerful plugin for PyCharm that enhances monorepo workflows.<br>
+        Features:
+        <ul>
+            <li>Displays a friendly "Hello from Kuzco!" message.</li>
+            <li>Triggers Python scripts on file edits.</li>
+            <li>Automatically reloads .iml files when modified.</li>
+        </ul>
+        Compatible with PyCharm Community and Professional editions (2022.3 - 2024.x).
+        ]]>
+    </description>
+    <version>1.1.0</version>
+    <idea-version since-build="223.7571" until-build="243.*" />
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.python</depends>
+
+    <!-- Actions -->
+    <actions>
+        <action id="com.kuzco.HelloAction"
+                class="com.kuzco.kuzcoplugin.HelloAction"
+                text="Say Hello from Kuzco"
+                description="Displays a friendly greeting from Kuzco">
+            <add-to-group group-id="ToolsMenu" anchor="last" />
+        </action>
+    </actions>
+
+    <!-- Project listeners -->
+    <projectListeners>
+        <listener class="com.kuzco.kuzcoplugin.ImlFileListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </projectListeners>
+
+    <!-- Project components -->
+    <project-components>
+        <component>
+            <implementation-class>com.kuzco.kuzcoplugin.FileChangeListenerComponent</implementation-class>
+        </component>
+    </project-components>
+
+    <!-- Optional: Add extension points for future enhancements -->
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="Kuzco Notifications"
+                           displayType="BALLOON"
+                           toolWindowId="ProjectView" />
+        <!-- Optional: ties notifications to a tool window -->
+        key="kuzco.notification.group"/> <!-- Optional: for i18n -->
+    </extensions>
+</idea-plugin>
