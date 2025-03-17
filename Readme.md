@@ -1,7 +1,3 @@
-Below is a polished and clear README for your Kuzco plugin project. It provides an overview, installation instructions, features, usage, and development details in a concise and professional manner.
-
----
-
 # Kuzco Plugin for PyCharm
 
 A powerful PyCharm plugin designed to enhance Python monorepo workflows. Kuzco automates project configuration updates and provides tools to streamline development in PyCharm Community and Professional editions (versions 2022.3 to 2024.x).
