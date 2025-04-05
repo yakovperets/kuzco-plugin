@@ -54,7 +54,7 @@ def main():
 
     # Determine the project root (assuming the script runs from src/scripts/bin/)
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.abspath(os.path.join(script_dir, "../../.."))
+    project_root = os.path.abspath(os.path.join(script_dir, "../.."))
 
     # Analyze the file path and get the new content URL
     new_content_url = analyze_file_path(edited_file_path, project_root)

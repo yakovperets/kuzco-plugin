@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.kuzco"
-version = "1.1.0" // Matches plugin.xml
+version = "2.0.0" // Matches plugin.xml
 
 repositories {
     mavenCentral()
@@ -15,7 +15,9 @@ intellij {
     version.set("2023.2.2") // Base version for development
     type.set("PY") // Targets both PyCharm Community and Professional
 }
-
+dependencies {
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2") // Add this line
+}
 tasks {
     withType<JavaCompile> {
         sourceCompatibility = "17"
